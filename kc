@@ -1,0 +1,6 @@
+FILE_NAME=$1
+AFTER_NAME="${FILE_NAME/.kt/.jar}"
+
+echo "kotlinc \"$FILE_NAME\" -include-runtime -d \"$AFTER_NAME\""
+kotlinc "$FILE_NAME" -include-runtime -d "$AFTER_NAME"
+java -jar $AFTER_NAME
